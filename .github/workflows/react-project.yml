@@ -24,9 +24,9 @@ jobs:
       - name: Checks-out your repository
       - uses: actions/checkout@v3
 
-      - name: setup node js envirnment
-        uses: actions/setup-node@v3 
-         with:
+      - name: Installing Node
+        uses: actions/setup-node@v3
+        with:
           node-version : 13
 
 
