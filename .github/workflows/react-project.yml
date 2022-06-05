@@ -23,8 +23,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checks-out your repository
       - uses: actions/checkout@v3
+
       - name: setup node js envirnment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3 
+         with:
+          node-version : 13
+
+
+
       - name: setup yarn
       - uses: borales/actions-yarn@v2.3.0
         with:
@@ -33,8 +39,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Creating build
         run: yarn build
+
+
       - name: installing surge
         run:  npm install --global surge
+
       - name: deploying using surge
         run: surge ./ build http://demoproject-react.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
           
